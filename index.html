@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Bank Deposit Calculator</title>
 </head>
 <body>
     <header>
-        <h1>Calculator</h1>
+        <h1 class="header-of-page">Calculator</h1>
     </header>
     <main>
-        <article>
-            <p>Начальную сумму вклада (₼)</p>
-            <input type="number" id="start-amount-input">
-            <p>Сумму ежемесячного пополнения (₼)</p>
-            <input type="number" id="top-up-amount-input">
-            <p>Процентная ставка</p>
-            <input type="number" id="rate-amount-input">
-            <p>Срок вклада (дней)</p>
-            <input type="number" id="days-amount-input">
+        <article class="calculator-body">
+            <p class="calculator-properties">Начальную сумму вклада (₼)</p>
+            <input type="number" placeholder="Введите сумму вклада" class="input" id="start-amount-input">
+            <p class="calculator-properties">Сумму ежемесячного пополнения (₼)</p>
+            <input type="number" placeholder="Введите сумму пополнения" class="input" id="top-up-amount-input">
+            <p class="calculator-properties">Процентная ставка (%)</p>
+            <input type="number" placeholder="Введите процентную ставку" class="input" id="rate-amount-input">
+            <p class="calculator-properties">Срок вклада (дней)</p>
+            <input type="number" placeholder="Введите срок вклада" class="input" id="days-amount-input">
+            <button class="button" id="calculate-button">Рассчитать</button>
         </article>
     </main>
+    <script src="./script.js"></script>
 </body>
 </html>
