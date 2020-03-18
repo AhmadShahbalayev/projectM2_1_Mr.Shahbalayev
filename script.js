@@ -47,5 +47,4 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
   alert("Future value of deposit will be: " + +initialAmount);
 }
 
-
 calculateButton.addEventListener("click", toCalculate);
