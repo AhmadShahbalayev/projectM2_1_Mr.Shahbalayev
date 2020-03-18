@@ -32,15 +32,8 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
         return NaN;
     }
     errorText.className = 'input-error';
-    // if (months <= 1) {
-    //     finalAmount = +initialAmount * Math.pow((1 + +interestRate / 1200), (+months / 12 * 12)) + +topUp * months;
-    //     alert('Future value of deposit will be: ' + +finalAmount);
-    // } else {
-    //     finalAmount = (+initialAmount + +topUp * months) * Math.pow((1 + +interestRate / 1200), (+months / 12 * 12)) - (+topUp * +interestRate / 1200);
-    //     alert('Future value of deposit will be: ' + +finalAmount);
-    // }
-    for(t = 1; t <= months; t++) {
-        initialAmount = +initialAmount + +topUp + +initialAmount * +interestRate / 1200; 
+    for (t = 1; t <= months; t++) {
+        initialAmount = +initialAmount + +topUp + +initialAmount * +interestRate / 1200;
     }
     alert('Future value of deposit will be: ' + +initialAmount);
 }
