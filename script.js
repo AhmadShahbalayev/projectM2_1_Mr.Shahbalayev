@@ -6,7 +6,7 @@ let calculateButton = document.getElementById('calculate-button');
 let errorText = document.getElementById('error-text');
 let futureValue = document.getElementById('future-value');
 
-function toCalculate(initialAmount, topUp, interestRate, months, finalAmount) {
+function toCalculate(initialAmount, topUp, interestRate, months) {
     initialAmount = initialAmountInput.value;
     if (initialAmount <= 0) {
         errorText.innerHTML = '<span class="error-logo">i</span> Вы не правильно введили "Начальную сумму вклада"!';
@@ -32,13 +32,17 @@ function toCalculate(initialAmount, topUp, interestRate, months, finalAmount) {
         return NaN;
     }
     errorText.className = 'input-error';
-    if (months <= 1) {
-        finalAmount = +initialAmount * Math.pow((1 + +interestRate / 1200), (+months / 12 * 12)) + +topUp * months;
-        alert('Future value of deposit will be: ' + +finalAmount);
-    } else {
-        finalAmount = (+initialAmount + +topUp * months) * Math.pow((1 + +interestRate / 1200), (+months / 12 * 12)) - (+topUp * +interestRate / 1200);
-        alert('Future value of deposit will be: ' + +finalAmount);
+    // if (months <= 1) {
+    //     finalAmount = +initialAmount * Math.pow((1 + +interestRate / 1200), (+months / 12 * 12)) + +topUp * months;
+    //     alert('Future value of deposit will be: ' + +finalAmount);
+    // } else {
+    //     finalAmount = (+initialAmount + +topUp * months) * Math.pow((1 + +interestRate / 1200), (+months / 12 * 12)) - (+topUp * +interestRate / 1200);
+    //     alert('Future value of deposit will be: ' + +finalAmount);
+    // }
+    for(t = 1; t <= months; t++) {
+        initialAmount = +initialAmount + +topUp + +initialAmount * +interestRate / 1200; 
     }
+    alert('Future value of deposit will be: ' + +initialAmount);
 }
 
 calculateButton.addEventListener('click', toCalculate);
