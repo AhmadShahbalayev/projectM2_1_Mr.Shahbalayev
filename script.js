@@ -34,7 +34,7 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
     if (daysInput.value <= 0) {
         errorText.innerHTML =
             '<span class="error-logo">i</span> Вы не правильно ввели "Срок вклада"!';
-            errorText.className = "";
+        errorText.className = "";
         console.log('Срок вклада: ' + NaN);
         return NaN;
     }
