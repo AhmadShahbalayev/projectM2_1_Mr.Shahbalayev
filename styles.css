@@ -14,7 +14,7 @@ img {
 
 a {
     color: #DC1834;
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
 }
 
@@ -25,10 +25,8 @@ a {
     display: block;
     border-radius: 10px;
     text-align: center;
-    font-family: Roboto, sans-serif;
     font-size: 25px;
     margin: 10px auto;
-    color: #DC1834;
     background-color: white;
 }
 

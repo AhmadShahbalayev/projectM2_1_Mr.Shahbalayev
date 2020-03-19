@@ -23,7 +23,7 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
         return NaN;
     }
     interestRate = interestRateInput.value;
-    if (interestRate < 1 || interestRate > 100) {
+    if (interestRate < 0 || interestRate > 100) {
         errorText.innerHTML =
             '<span class="error-logo">i</span> Процентная ставка может быть только от 1 до 100!';
         errorText.className = "";
