@@ -11,7 +11,7 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
         errorText.innerHTML =
             '<span class="error-logo">i</span> Вы не правильно ввели "Начальную сумму вклада"!';
         errorText.className = "";
-        console.log('Начальную сумму вклада: ' + NaN);
+        console.error('Начальную сумму вклада: ' + NaN);
         return NaN;
     }
     topUp = topUpInput.value;
@@ -19,7 +19,7 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
         errorText.innerHTML =
             '<span class="error-logo">i</span> Вы не правильно ввели "Сумму ежемесячного пополнения"!';
         errorText.className = "";
-        console.log('Сумму ежемесячного пополнени: ' + NaN);
+        console.error('Сумму ежемесячного пополнени: ' + NaN);
         return NaN;
     }
     interestRate = interestRateInput.value;
@@ -27,7 +27,7 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
         errorText.innerHTML =
             '<span class="error-logo">i</span> Процентная ставка может быть только от 1 до 100!';
         errorText.className = "";
-        console.log('Процентная ставка: ' + NaN);
+        console.error('Процентная ставка: ' + NaN);
         return NaN;
     }
     months = Math.trunc(daysInput.value / 30);
@@ -35,7 +35,7 @@ function toCalculate(initialAmount, topUp, interestRate, months) {
         errorText.innerHTML =
             '<span class="error-logo">i</span> Вы не правильно ввели "Срок вклада"!';
         errorText.className = "";
-        console.log('Срок вклада: ' + NaN);
+        console.error('Срок вклада: ' + NaN);
         return NaN;
     }
     errorText.className = "input-error";
