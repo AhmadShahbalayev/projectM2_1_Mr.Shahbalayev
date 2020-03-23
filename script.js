@@ -13,7 +13,7 @@ function getResult() {
     r = interestRateInput.value;
     d = daysInput.value;
     if (toCheck(cv, tp, r, d)) {
-        alert(toCalculate(cv ,tp, r, d));
+        alert(toCalculate(cv, tp, r, d));
     } else {
         return NaN;
     }
