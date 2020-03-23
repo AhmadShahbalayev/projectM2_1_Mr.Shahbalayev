@@ -5,50 +5,47 @@ let daysInput = document.getElementById("days-input");
 let calculateButton = document.getElementById("calculate-button");
 let errorText = document.getElementById("error-text");
 
-function toCalculate(initialAmount, topUp, interestRate, months) {
-    initialAmount = initialAmountInput.value;
-    if (initialAmount <= 0) {
-        errorText.innerHTML =
-            '<span class="error-logo">i</span> Вы не правильно ввели "Начальную сумму вклада"!';
+function toCalculate(cv, tp, r, d) {
+    cv = initialAmountInput.value;
+    tp = topUpInput.value;
+    r = interestRateInput.value;
+    d = daysInput.value;
+    if (cv <= 0) {
+        errorText.innerHTML = '<span class="error-logo">i</span> Вы не правильно ввели "Начальную сумму вклада"!';
         errorText.className = "";
-        console.error('Начальную сумму вклада: ' + NaN);
+        console.warn('Начальную сумму вклада введен неправильно');
         return NaN;
     }
-    topUp = topUpInput.value;
-    if (topUp < 0 || topUp === "") {
-        errorText.innerHTML =
-            '<span class="error-logo">i</span> Вы не правильно ввели "Сумму ежемесячного пополнения"!';
+    if (tp < 0 || tp === "") {
+        errorText.innerHTML = '<span class="error-logo">i</span> Вы не правильно ввели "Сумму ежемесячного пополнения"!';
         errorText.className = "";
-        console.error('Сумму ежемесячного пополнени: ' + NaN);
+        console.warn('Сумму ежемесячного пополнени введен неправильно');
         return NaN;
     }
-    interestRate = interestRateInput.value;
-    if (interestRate < 0 || interestRate > 100) {
-        errorText.innerHTML =
-            '<span class="error-logo">i</span> Процентная ставка может быть только от 1 до 100!';
+    if (r < 0 || r > 100 || r === '') {
+        errorText.innerHTML = '<span class="error-logo">i</span> Процентная ставка может быть только от 0 до 100!';
         errorText.className = "";
-        console.error('Процентная ставка: ' + NaN);
+        console.warn('Процентная ставка введен неправильно');
         return NaN;
     }
-    months = Math.trunc(daysInput.value / 30);
-    if (daysInput.value <= 0) {
-        errorText.innerHTML =
-            '<span class="error-logo">i</span> Вы не правильно ввели "Срок вклада"!';
+    if (d <= 0) {
+        errorText.innerHTML = '<span class="error-logo">i</span> Вы не правильно ввели "Срок вклада"!';
         errorText.className = "";
-        console.error('Срок вклада: ' + NaN);
+        console.warn('Срок вклада введен неправильно');
         return NaN;
     }
     errorText.className = "input-error";
-    if (daysInput.value < 30) {
-        alert("Future value of deposit will be: " + +initialAmount);
+    if (d < 30) {
+        alert("Future value of deposit will be: " + +cv);
         return;
     } else {
-        for (t = 1; t <= months; t++) {
-            initialAmount = +initialAmount + +topUp + (+initialAmount * +interestRate) / 1200;
+        let months = Math.trunc(d / 30);
+        for (i = 1; i <= months; i++) {
+            cv = +cv + +tp + (+cv * +r) / 1200;
         }
     }
-    initialAmount -= topUp;
-    alert("Future value of deposit will be: " + +initialAmount);
+    cv -= tp;
+    alert("Future value of deposit will be: " + +cv);
 }
 
 calculateButton.addEventListener("click", toCalculate);
