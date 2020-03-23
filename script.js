@@ -5,7 +5,7 @@ let daysInput = document.getElementById("days-input");
 let calculateButton = document.getElementById("calculate-button");
 let errorText = document.getElementById("error-text");
 
-function toCalculate(cv, tp, r, d) {
+function toCheck(cv, tp, r, d) {
     cv = initialAmountInput.value;
     tp = topUpInput.value;
     r = interestRateInput.value;
@@ -22,7 +22,7 @@ function toCalculate(cv, tp, r, d) {
         console.warn('Сумму ежемесячного пополнени введен неправильно');
         return NaN;
     }
-    if (r < 0 || r > 100 || r === '') {
+    if (r <= 0 || r > 100 || r === '') {
         errorText.innerHTML = '<span class="error-logo">i</span> Процентная ставка может быть только от 0 до 100!';
         errorText.className = "";
         console.warn('Процентная ставка введен неправильно');
@@ -35,6 +35,14 @@ function toCalculate(cv, tp, r, d) {
         return NaN;
     }
     errorText.className = "input-error";
+    toCalculate();
+}
+
+function toCalculate(cv, tp, d, r) {
+    cv = initialAmountInput.value;
+    tp = topUpInput.value;
+    r = interestRateInput.value;
+    d = daysInput.value;
     if (d < 30) {
         alert("Future value of deposit will be: " + +cv);
         return;
@@ -48,4 +56,4 @@ function toCalculate(cv, tp, r, d) {
     alert("Future value of deposit will be: " + +cv);
 }
 
-calculateButton.addEventListener("click", toCalculate);
+calculateButton.addEventListener("click", toCheck);
