@@ -58,6 +58,6 @@ function toCalculate(cv, tp, r, d) {
         }
     }
     cv -= +tp;
-    return "Future value of deposit will be: " + +cv;
+    return "Future value of deposit will be: " + +cv.toFixed(2);
 }
 
