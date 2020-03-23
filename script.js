@@ -38,7 +38,7 @@ function toCheck(cv, tp, r, d) {
         console.warn('Процентная ставка введен неправильно');
         return NaN;
     }
-    if (d <= 0) {
+    if (d <= 0 || d === '') {
         errorText.innerHTML = '<span class="error-logo">i</span> Вы не правильно ввели "Срок вклада"!';
         errorText.className = '';
         console.warn('Срок вклада введен неправильно');
