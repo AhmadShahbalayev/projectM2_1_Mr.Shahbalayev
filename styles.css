@@ -2,16 +2,6 @@ html {
     background-color: #008455;
 }
 
-img {
-    width: 35%;
-    padding: 1%;
-    min-width: 475px;
-    margin: 5% auto 0px;
-    display: block;
-    border-radius: 10px;
-    background-color: white;
-}
-
 a {
     color: #DC1834;
     font-family: 'Roboto', sans-serif;
