@@ -1,3 +1,5 @@
+// Global variables stored here:
+
 let initialAmountInput = document.getElementById("initial-amount-input");
 let topUpInput = document.getElementById("top-up-input");
 let interestRateInput = document.getElementById("interest-rate-input");
@@ -6,6 +8,8 @@ let calculateButton = document.getElementById("calculate-button");
 let errorText = document.getElementById("error-text");
 
 calculateButton.addEventListener("click", getResult);
+
+// This function puts everything together and runs whole app:
 
 function getResult() {
     cv = initialAmountInput.value;
@@ -18,6 +22,8 @@ function getResult() {
         return NaN;
     }
 }
+
+// This function valides input fields:
 
 function toCheck(cv, tp, r, d) {
     if (cv <= 0 || cv === '') {
@@ -47,6 +53,8 @@ function toCheck(cv, tp, r, d) {
     errorText.className = "input-error";
     return true;
 }
+
+// This function calculates compound interest rate:
 
 function toCalculate(cv, tp, r, d) {
     if (d < 30) {
